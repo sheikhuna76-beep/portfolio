@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Asia Abdullahi - Premium Frontend Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== LUXURY VARIABLES ===== */
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B08D26;
+            --deep-navy: #0A0E17;
+            --navy: #1A1F2E;
+            --light-navy: #2A3045;
+            --platinum: #E5E4E2;
+            --cream: #F5F3EF;
+            --transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F4E4A6 100%);
+            --text-gradient: linear-gradient(135deg, #D4AF37 30%, #F4E4A6 100%);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            --light-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            --border-radius: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--deep-navy);
+            color: var(--platinum);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(10, 14, 23, 0.8) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 42px;
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--light-shadow);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+        
+        .btn-outline:hover {
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            border-color: transparent;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--gold-gradient);
+        }
+        
+        .section-subtitle {
+            color: var(--platinum);
+            font-size: 1.2rem;
+            max-width: 600px;
+            opacity: 0.8;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-top: 2rem;
+        }
+        
+        /* ===== LUXURY NAVIGATION ===== */
+        .luxury-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+        
+        .luxury-nav.scrolled {
+            padding: 18px 0;
+            background: rgba(10, 14, 23, 0.98);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .luxury-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--platinum);
+            text-decoration: none;
+            position: relative;
+            letter-spacing: 2px;
+        }
+        
+        .luxury-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .luxury-logo:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .luxury-nav-links {
+            display: flex;
+            list-style: none;
+            gap: 50px;
+        }
+        
+        .luxury-nav-links a {
+            color: var(--platinum);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            text-transform: uppercase;
+        }
+        
+        .luxury-nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-gradient);
+            transition: var(--transition);
+        }
+        
+        .luxury-nav-links a:hover::before,
+        .luxury-nav-links a.active::before {
+            width: 100%;
+        }
+        
+        .luxury-nav-links a:hover,
+        .luxury-nav-links a.active {
+            color: var(--gold);
+        }
+        
+        /* ===== ENHANCED MOBILE MENU ===== */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--gold);
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+        
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+        }
+        
+        .mobile-menu-container {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 400px;
+            height: 100%;
+            background: rgba(26, 31, 46, 0.98);
+            backdrop-filter: blur(30px);
+            z-index: 1000;
+            padding: 100px 40px 40px;
+            transition: right 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+            border-left: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mobile-menu-container.active {
+            right: 0;
+        }
+        
+        .mobile-menu-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .mobile-menu-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: var(--platinum);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-close:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+            transform: rotate(90deg);
+        }
+        
+        .mobile-nav-links {
+            list-style: none;
+            margin-top: 30px;
+        }
+        
+        .mobile-nav-links li {
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .mobile-nav-links a {
+            color: var(--platinum);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .mobile-nav-links a i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: var(--gold);
+            width: 24px;
+            text-align: center;
+        }
+        
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
+            color: var(--gold);
+            padding-left: 10px;
+            border-bottom-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        /* ===== PROJECTS HERO ===== */
+        .projects-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 150px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .projects-hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+            z-index: -1;
+        }
+        
+        .projects-hero-content {
+            max-width: 800px;
+        }
+        
+        .projects-hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--platinum);
+        }
+        
+        .projects-hero-content .gold-text {
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .projects-hero-content p {
+            font-size: 1.2rem;
+            color: var(--platinum);
+            opacity: 0.8;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        
+        /* ===== PROJECTS SHOWCASE ===== */
+        .projects-showcase {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--platinum);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            border-color: transparent;
+            transform: translateY(-3px);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            background: rgba(26, 31, 46, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            position: relative;
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: var(--light-shadow);
+        }
+        
+        .project-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(10, 14, 23, 0.9) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-live-btn {
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .project-card:hover .project-live-btn {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .project-content {
+            padding: 35px;
+        }
+        
+        .project-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--platinum);
+        }
+        
+        .project-content p {
+            color: var(--platinum);
+            opacity: 0.8;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .project-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--platinum);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .project-link:hover {
+            color: var(--gold);
+        }
+        
+        .project-link i {
+            color: var(--gold);
+        }
+        
+        /* ===== FEATURED PROJECTS ===== */
+        .featured-projects {
+            padding: 100px 0;
+            background: rgba(26, 31, 46, 0.5);
+        }
+        
+        .featured-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 80px;
+        }
+        
+        .featured-project {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .featured-project:nth-child(even) .featured-image {
+            order: 2;
+        }
+        
+        .featured-project:nth-child(even) .featured-content {
+            order: 1;
+        }
+        
+        .featured-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+        
+        .featured-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--platinum);
+        }
+        
+        .featured-content p {
+            color: var(--platinum);
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .featured-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--platinum);
+            opacity: 0.8;
+        }
+        
+        /* ===== CANVA DESIGNS SECTION ===== */
+        /* ===== ENHANCED CANVA DESIGNS SECTION ===== */
+.canva-designs {
+    padding: 100px 0;
+    position: relative;
+    background: linear-gradient(135deg, rgba(10, 14, 23, 0.95) 0%, rgba(26, 31, 46, 0.9) 100%);
+}
+
+.canva-designs::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+    z-index: -1;
+}
+
+.designs-container {
+    text-align: center;
+    position: relative;
+}
+
+.designs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.design-card {
+    background: rgba(26, 31, 46, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.design-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gold-gradient);
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+    z-index: 2;
+}
+
+.design-card:hover::before {
+    transform: scaleX(1);
+}
+
+.design-card:hover {
+    transform: translateY(-15px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 25px 50px rgba(212, 175, 55, 0.15);
+}
+
+.design-card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.design-image-container {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.design-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.design-card:hover .design-image {
+    transform: scale(1.05);
+}
+
+.design-image-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(10, 14, 23, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 6px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.design-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.design-card-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.design-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+.design-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: var(--platinum);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+}
+
+.design-card p {
+    color: var(--platinum);
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.design-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.design-feature {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+}
+
+.design-card:hover .design-feature {
+    background: rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments for images */
+@media (max-width: 1200px) {
+    .design-image-container {
+        height: 200px;
+    }
+}
+
+@media (max-width: 992px) {
+    .designs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .designs-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .design-image-container {
+        height: 220px;
+    }
+    
+    .design-card-content {
+        padding: 25px;
+    }
+    
+    .design-card:hover {
+        transform: translateY(-10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .design-image-container {
+        height: 180px;
+    }
+    
+    .design-card-content {
+        padding: 20px;
+    }
+    
+    .design-card h3 {
+        font-size: 1.4rem;
+    }
+    
+    .design-features {
+        gap: 6px;
+    }
+    
+    .design-feature {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Image loading animation */
+@keyframes imageFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.design-image {
+    animation: imageFadeIn 0.8s ease-out forwards;
+}
+
+/* Add this for better image optimization */
+.design-image-container {
+    background: linear-gradient(135deg, #1A1F2E 0%, #2A3045 100%);
+}
+
+.design-image[src$=".jpeg"], 
+.design-image[src$=".jpg"] {
+    background-position: center;
+    background-size: cover;
+}
+
+/* Add placeholder for missing images */
+.design-image:not([src]), 
+.design-image[src=""], 
+.design-image[src*="undefined"] {
+    background: linear-gradient(135deg, #2A3045 0%, #1A1F2E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.design-image:not([src])::after, 
+.design-image[src=""]::after, 
+.design-image[src*="undefined"]::after {
+    content: 'Design Preview';
+    color: var(--gold);
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+/* Add hover effect for design icons */
+.design-icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    transition: var(--transition);
+}
+
+.design-card:hover .design-icon {
+    background: rgba(212, 175, 55, 0.2);
+    transform: rotateY(180deg);
+}
+
+/* CTA button styling */
+.design-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+
+        
+        /* ===== CTA SECTION ===== */
+        .projects-cta {
+            padding: 100px 0;
+            text-align: center;
+            background: rgba(26, 31, 46, 0.5);
+            position: relative;
+        }
+        
+        .projects-cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .projects-cta h2 {
+            font-size: 3.2rem;
+            margin-bottom: 30px;
+            color: var(--platinum);
+        }
+        
+        .projects-cta p {
+            font-size: 1.2rem;
+            color: var(--platinum);
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+        
+        /* ===== LUXURY FOOTER ===== */
+        .luxury-footer {
+            background: rgba(10, 14, 23, 0.95);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--platinum);
+            text-decoration: none;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--platinum);
+            transition: var(--transition);
+            text-decoration: none;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .social-icon:hover {
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+        
+        .footer-copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--platinum);
+            opacity: 0.6;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        /* ===== LOADING ANIMATION ===== */
+        .loading-spinner {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--gold);
+            animation: spin 1s ease-in-out infinite;
+            margin: 30px auto;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .projects-hero-content h1 {
+                font-size: 3.5rem;
+            }
+            
+            .featured-project {
+                gap: 40px;
+            }
+            
+            .featured-image img {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .projects-hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .featured-project {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .featured-project:nth-child(even) .featured-image {
+                order: 1;
+            }
+            
+            .featured-project:nth-child(even) .featured-content {
+                order: 2;
+            }
+            
+            .featured-image img {
+                height: 300px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .designs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+            
+            .luxury-nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .projects-hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .projects-filter {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+            
+            .project-content {
+                padding: 25px;
+            }
+            
+            .featured-content h3 {
+                font-size: 1.8rem;
+            }
+            
+            .featured-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+            .design-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .design-cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+    }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-menu-container,
+            .mobile-menu-overlay {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .projects-hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .projects-cta h2 {
+                font-size: 2.5rem;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+            
+            .featured-image img {
+                height: 250px;
+            }
+            
+            .design-card {
+                padding: 35px 25px;
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .animate-in-right {
+            animation: fadeInRight 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+        
+        /* ===== SCROLLBAR STYLING ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--deep-navy);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-gradient);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Luxury Navigation -->
+    <nav class="luxury-nav" id="luxuryNav">
+        <div class="container nav-container">
+            <a href="index.html" class="luxury-logo">ASIA ABDULLAHI</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="luxury-nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu-container" id="mobileMenuContainer">
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-logo">ASIA ABDULLAHI</div>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-nav-links" id="mobileNavLinks">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="projects.html" class="active"><i class="fas fa-briefcase"></i> Projects</a></li>
+            <li><a href="skills.html"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Projects Hero Section -->
+    <section class="projects-hero">
+        <div class="projects-hero-bg"></div>
+        <div class="container">
+            <div class="projects-hero-content animate-in">
+                <h1>Creative <span class="gold-text">Portfolio</span> Showcase</h1>
+                <p class="delay-1 animate-in">
+                    A curated collection of my finest work in web development and design. 
+                    Each project represents a unique challenge solved with creativity, 
+                    technical expertise, and meticulous attention to detail.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase -->
+    <section class="projects-showcase">
+        <div class="container">
+            <h2 class="section-title animate-in">Featured Projects</h2>
+            <p class="section-subtitle delay-1 animate-in">
+                A selection of my recent work showcasing diverse skills and technologies
+            </p>
+            
+            <div class="projects-filter delay-2 animate-in">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="design">UI/UX Design</button>
+                <button class="filter-btn" data-filter="responsive">Responsive</button>
+            </div>
+            
+            <!-- Loading Spinner for filtering -->
+            <div class="loading-spinner" id="loadingSpinner"></div>
+            
+            <div class="projects-grid" id="projectsGrid">
+                <div class="project-card animate-in" data-category="web responsive">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Aviation Website Project" loading="lazy">
+                        <div class="project-overlay">
+                            <a href="https://sheikhuna76-beep.github.io/Aviation/" target="_blank" class="project-live-btn">
+                                <i class="fas fa-external-link-alt"></i> Live Preview
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Aviation Website</h3>
+                        <p>
+                            A modern, responsive aviation company website with flight booking system, 
+                            destination showcase, and customer portal. Features smooth animations and 
+                            intuitive user interface.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Responsive</span>
+                            <span class="project-tag">Booking System</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://sheikhuna76-beep.github.io/Aviation/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/sheikhuna76-beep/Aviation" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card delay-1 animate-in" data-category="web design responsive">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Aura Luxury Brand Project" loading="lazy">
+                        <div class="project-overlay">
+                            <a href="https://sheikhuna76-beep.github.io/aura/" target="_blank" class="project-live-btn">
+                                <i class="fas fa-external-link-alt"></i> Live Preview
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Aura Luxury Brand</h3>
+                        <p>
+                            Premium e-commerce website for luxury beauty brand with product filtering, 
+                            cart functionality, and elegant product showcases. Focus on visual aesthetics 
+                            and seamless user experience.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">E-commerce</span>
+                            <span class="project-tag">UI Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://sheikhuna76-beep.github.io/aura/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/sheikhuna76-beep/aura" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card delay-2 animate-in" data-category="web design">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Lux Real Estate Project" loading="lazy">
+                        <div class="project-overlay">
+                            <a href="https://sheikhuna76-beep.github.io/lux/" target="_blank" class="project-live-btn">
+                                <i class="fas fa-external-link-alt"></i> Live Preview
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Lux Real Estate</h3>
+                        <p>
+                            High-end real estate platform with property listings, virtual tours, 
+                            and agent management system. Modern design with interactive maps and 
+                            property filtering capabilities.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Real Estate</span>
+                            <span class="project-tag">Interactive</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://sheikhuna76-beep.github.io/lux/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/sheikhuna76-beep/lux" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Details -->
+    <section class="featured-projects">
+        <div class="container">
+            <h2 class="section-title animate-in">Project Highlights</h2>
+            <p class="section-subtitle delay-1 animate-in">
+                In-depth look at key projects with detailed case studies
+            </p>
+            
+            <div class="featured-container">
+                <div class="featured-project delay-1 animate-in">
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Aviation Project Detailed" loading="lazy">
+                        <div class="featured-badge">Featured</div>
+                    </div>
+                    <div class="featured-content">
+                        <h3>Aviation Website - Complete Case Study</h3>
+                        <p>
+                            Developed a comprehensive aviation company website from concept to deployment. 
+                            The project involved creating a responsive design that works seamlessly across 
+                            all devices, implementing a flight booking interface, and integrating dynamic 
+                            content management.
+                        </p>
+                        <p>
+                            Key challenges included optimizing for fast loading speeds while maintaining 
+                            high-quality visuals, creating an intuitive booking flow, and ensuring 
+                            accessibility compliance throughout the user journey.
+                        </p>
+                        
+                        <div class="featured-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Performance Score</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">2.1s</div>
+                                <div class="stat-label">Load Time</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Mobile Responsive</div>
+                            </div>
+                        </div>
+                        
+                        <a href="https://sheikhuna76-beep.github.io/Aviation/" target="_blank" class="btn">
+                            <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i>
+                            Explore Project
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="featured-project delay-2 animate-in">
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Aura Project Detailed" loading="lazy">
+                        <div class="featured-badge">Premium</div>
+                    </div>
+                    <div class="featured-content">
+                        <h3>Aura Luxury Brand - Design & Development</h3>
+                        <p>
+                            Crafted a premium e-commerce experience for a luxury beauty brand, 
+                            focusing on visual storytelling and seamless shopping experience. 
+                            The design emphasizes product aesthetics while maintaining functionality.
+                        </p>
+                        <p>
+                            Implemented advanced filtering systems, smooth animations for product 
+                            showcases, and a streamlined checkout process. Special attention was 
+                            given to creating an emotional connection through design elements that 
+                            reflect the brand's luxury positioning.
+                        </p>
+                        
+                        <div class="featured-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">95%</div>
+                                <div class="stat-label">User Satisfaction</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">40%</div>
+                                <div class="stat-label">Faster Checkout</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">85%</div>
+                                <div class="stat-label">Mobile Conversion</div>
+                            </div>
+                        </div>
+                        
+                        <a href="https://sheikhuna76-beep.github.io/aura/" target="_blank" class="btn">
+                            <i class="fas fa-shopping-bag" style="margin-right: 10px;"></i>
+                            View Store
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Canva Designs Section -->
+<section class="canva-designs">
+    <div class="container designs-container">
+        <h2 class="section-title animate-in">Canva Design Portfolio</h2>
+        <p class="section-subtitle delay-1 animate-in">
+            Professional graphic design work showcasing branding, marketing materials, and social media content
+        </p>
+        
+        <div class="designs-grid">
+            <!-- First Design: Branding & Logo Design -->
+            <div class="design-card delay-1 animate-in">
+                <div class="design-card-inner">
+                    <div class="design-image-container">
+                        <img src="adj.jpeg" alt="Brand Identity & Logo Design Examples" class="design-image">
+                        <div class="design-image-overlay">
+                            <span class="design-category">Branding</span>
+                        </div>
+                    </div>
+                    <div class="design-card-content">
+                        <div class="design-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Brand Identity & Logos</h3>
+                        <p>
+                            Premium brand identity packages including luxury logos, color palettes, 
+                            typography systems, and brand guidelines. Specializing in high-end visual identities.
+                        </p>
+                        <div class="design-features">
+                            <span class="design-feature">Creative Solutions</span>
+                            <span class="design-feature">Logo Ideas</span>
+                            <span class="design-feature">Brand Guidelines</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Design: Social Media & Invitations -->
+            <div class="design-card delay-2 animate-in">
+                <div class="design-card-inner">
+                    <div class="design-image-container">
+                        <img src="social.jpeg" alt="Event Invitation and Social Media Designs" class="design-image">
+                        <div class="design-image-overlay">
+                            <span class="design-category">Events</span>
+                        </div>
+                    </div>
+                    <div class="design-card-content">
+                        <div class="design-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Events & Social Media</h3>
+                        <p>
+                            Elegant invitation designs, bridal inspiration boards, and social media graphics 
+                            for weddings, ceremonies, and special occasions with cultural sensitivity.
+                        </p>
+                        <div class="design-features">
+                            <span class="design-feature">Nikah Invitations</span>
+                            <span class="design-feature">Bridal Boards</span>
+                            <span class="design-feature">Social Media</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Third Design: Marketing & Advertising -->
+            <div class="design-card delay-3 animate-in">
+                <div class="design-card-inner">
+                    <div class="design-image-container">
+                        <img src="phone.jpeg" alt="Marketing Campaign and Advertising Designs" class="design-image">
+                        <div class="design-image-overlay">
+                            <span class="design-category">Marketing</span>
+                        </div>
+                    </div>
+                    <div class="design-card-content">
+                        <div class="design-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Marketing Campaigns</h3>
+                        <p>
+                            Effective advertising designs for product launches, sales promotions, 
+                            and marketing campaigns that drive engagement and conversions.
+                        </p>
+                        <div class="design-features">
+                            <span class="design-feature">Product Launches</span>
+                            <span class="design-feature">Sales Promotions</span>
+                            <span class="design-feature">Ad Campaigns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fourth Design: Web & Digital Media -->
+            <div class="design-card delay-4 animate-in">
+                <div class="design-card-inner">
+                    <div class="design-image-container">
+                        <img src="ig.jpg" alt="Web Design and Digital Layout Examples" class="design-image">
+                        <div class="design-image-overlay">
+                            <span class="design-category">Digital</span>
+                        </div>
+                    </div>
+                    <div class="design-card-content">
+                        <div class="design-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Digital Layouts</h3>
+                        <p>
+                            Modern web design layouts, poster templates, flyer designs, 
+                            and digital media content optimized for online platforms and print.
+                        </p>
+                        <div class="design-features">
+                            <span class="design-feature">Web Layouts</span>
+                            <span class="design-feature">Poster Templates</span>
+                            <span class="design-feature">Digital Media</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="delay-4 animate-in" style="margin-top: 60px; text-align: center;">
+            <a href="contact.html" class="btn btn-outline" style="padding: 18px 42px; margin: 10px;">
+                <i class="fas fa-images" style="margin-right: 10px;"></i>
+                View Full Design Portfolio
+            </a>
+            <a href="contact.html" class="btn" style="padding: 18px 42px; margin: 10px;">
+                <i class="fas fa-pencil-alt" style="margin-right: 10px;"></i>
+                Request Custom Design
+            </a>
+        </div>
+    </div>
+</section>
+    <!-- CTA Section -->
+    <section class="projects-cta">
+        <div class="projects-cta-bg"></div>
+        <div class="container">
+            <h2 class="animate-in">Ready to Bring Your Vision to Life?</h2>
+            <p class="delay-1 animate-in">
+                Each project starts with understanding your unique needs and ends with 
+                exceptional results. Let's collaborate to create something extraordinary.
+            </p>
+            <div class="delay-2 animate-in">
+                <a href="contact.html" class="btn" style="padding: 20px 50px;">
+                    <i class="fas fa-paper-plane" style="margin-right: 10px;"></i>
+                    Start Your Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Luxury Footer -->
+    <footer class="luxury-footer">
+        <div class="container">
+            <div class="footer-container">
+                <a href="#home" class="footer-logo">ASIA ABDULLAHI</a>
+                <div class="footer-social">
+                    <a href="mailto:sheikhliyanah@gmail.com" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/254112257994" target="_blank" class="social-icon" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://github.com/sheikhuna76-beep" target="_blank" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2024 ASIA ABDULLAHI. ALL RIGHTS RESERVED. | LUXURY WEB DESIGN & DEVELOPMENT
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Luxury Navigation Scroll Effect
+        const luxuryNav = document.getElementById('luxuryNav');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                luxuryNav.classList.add('scrolled');
+            } else {
+                luxuryNav.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuContainer = document.getElementById('mobileMenuContainer');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+        
+        function openMobileMenu() {
+            mobileMenuOverlay.style.display = 'block';
+            mobileMenuContainer.style.display = 'block';
+            
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add('active');
+                mobileMenuContainer.classList.add('active');
+                
+                // Animate menu items with delay
+                document.querySelectorAll('.mobile-nav-links li').forEach((item, index) => {
+                    item.style.animation = `fadeInRight 0.5s ease-out ${index * 0.1}s forwards`;
+                    item.style.opacity = '0';
+                });
+            }, 10);
+            
+            // Prevent body scrolling when menu is open
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('active');
+            mobileMenuContainer.classList.remove('active');
+            
+            setTimeout(() => {
+                mobileMenuOverlay.style.display = 'none';
+                mobileMenuContainer.style.display = 'none';
+            }, 400);
+            
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        }
+        
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Close menu when clicking a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Project Filtering Functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const projectsGrid = document.getElementById('projectsGrid');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Show loading spinner
+                loadingSpinner.style.display = 'block';
+                projectsGrid.style.opacity = '0.5';
+                
+                setTimeout(() => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    projectCards.forEach(card => {
+                        const cardCategories = card.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || cardCategories.includes(filterValue)) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                    
+                    // Hide loading spinner and restore opacity
+                    loadingSpinner.style.display = 'none';
+                    projectsGrid.style.opacity = '1';
+                    
+                    // Scroll to projects section if on mobile
+                    if (window.innerWidth < 768) {
+                        document.querySelector('.projects-showcase').scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }
+                }, 300); // Short delay for better UX
+            });
+        });
+        
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animate-in elements
+        document.querySelectorAll('.animate-in').forEach(el => {
+            if (!el.classList.contains('delay-1') && 
+                !el.classList.contains('delay-2') && 
+                !el.classList.contains('delay-3') && 
+                !el.classList.contains('delay-4')) {
+                observer.observe(el);
+            }
+        });
+        
+        // Initialize animations on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add staggered animation delays
+            document.querySelectorAll('.delay-1').forEach(el => {
+                el.style.animationDelay = '0.2s';
+            });
+            document.querySelectorAll('.delay-2').forEach(el => {
+                el.style.animationDelay = '0.4s';
+            });
+            document.querySelectorAll('.delay-3').forEach(el => {
+                el.style.animationDelay = '0.6s';
+            });
+            document.querySelectorAll('.delay-4').forEach(el => {
+                el.style.animationDelay = '0.8s';
+            });
+            
+            // Animate elements already in view on load
+            document.querySelectorAll('.animate-in').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
+                
+                if (isInView && !el.classList.contains('animated')) {
+                    el.classList.add('animate-in');
+                    el.classList.add('animated');
+                }
+            });
+        });
+        
+        // Prevent scrolling when mobile menu is open
+        mobileMenuContainer.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+        
+        // Add keyboard navigation support for project filtering
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+        
+        // Enhance project card hover effect on touch devices
+        if ('ontouchstart' in window) {
+            projectCards.forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.classList.add('hover');
+                });
+                
+                card.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.classList.remove('hover');
+                    }, 500);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

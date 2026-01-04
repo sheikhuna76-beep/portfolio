@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education | Asia Abdullahi - Premium Frontend Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== LUXURY VARIABLES ===== */
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B08D26;
+            --deep-navy: #0A0E17;
+            --navy: #1A1F2E;
+            --light-navy: #2A3045;
+            --platinum: #E5E4E2;
+            --cream: #F5F3EF;
+            --transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F4E4A6 100%);
+            --text-gradient: linear-gradient(135deg, #D4AF37 30%, #F4E4A6 100%);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            --light-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            --border-radius: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--deep-navy);
+            color: var(--platinum);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(10, 14, 23, 0.8) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* ===== ACCESSIBILITY ===== */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--gold);
+            color: var(--deep-navy);
+            padding: 8px;
+            z-index: 10000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 42px;
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover,
+        .btn:focus {
+            transform: translateY(-3px);
+            box-shadow: var(--light-shadow);
+        }
+        
+        .btn:focus {
+            outline: 2px solid var(--gold);
+            outline-offset: 3px;
+        }
+        
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--gold-gradient);
+        }
+        
+        .section-subtitle {
+            color: var(--platinum);
+            font-size: 1.2rem;
+            max-width: 600px;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-top: 2rem;
+        }
+        
+        /* ===== LUXURY NAVIGATION ===== */
+        .luxury-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+        
+        .luxury-nav.scrolled {
+            padding: 18px 0;
+            background: rgba(10, 14, 23, 0.98);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .luxury-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--platinum);
+            text-decoration: none;
+            position: relative;
+            letter-spacing: 2px;
+        }
+        
+        .luxury-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .luxury-logo:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .luxury-nav-links {
+            display: flex;
+            list-style: none;
+            gap: 50px;
+        }
+        
+        .luxury-nav-links a {
+            color: var(--platinum);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            text-transform: uppercase;
+        }
+        
+        .luxury-nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-gradient);
+            transition: var(--transition);
+        }
+        
+        .luxury-nav-links a:hover::before,
+        .luxury-nav-links a.active::before {
+            width: 100%;
+        }
+        
+        .luxury-nav-links a:hover,
+        .luxury-nav-links a.active,
+        .luxury-nav-links a:focus {
+            color: var(--gold);
+        }
+        
+        /* ===== ENHANCED MOBILE MENU ===== */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--gold);
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-btn:hover,
+        .mobile-menu-btn:focus {
+            background: rgba(212, 175, 55, 0.2);
+            outline: 2px solid var(--gold);
+        }
+        
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+        }
+        
+        .mobile-menu-container {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 400px;
+            height: 100%;
+            background: rgba(26, 31, 46, 0.98);
+            backdrop-filter: blur(30px);
+            z-index: 1000;
+            padding: 100px 40px 40px;
+            transition: right 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+            border-left: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mobile-menu-container.active {
+            right: 0;
+        }
+        
+        .mobile-menu-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .mobile-menu-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: var(--platinum);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-close:hover,
+        .mobile-menu-close:focus {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+            transform: rotate(90deg);
+            outline: none;
+        }
+        
+        .mobile-nav-links {
+            list-style: none;
+        }
+        
+        .mobile-nav-links li {
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        
+        .mobile-nav-links a {
+            color: var(--platinum);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .mobile-nav-links a i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: var(--gold);
+            width: 24px;
+            text-align: center;
+        }
+        
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active,
+        .mobile-nav-links a:focus {
+            color: var(--gold);
+            padding-left: 10px;
+            border-bottom-color: rgba(212, 175, 55, 0.3);
+        }
+        
+        .mobile-menu-footer {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            padding: 0 40px;
+            text-align: center;
+        }
+        
+        .mobile-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .mobile-social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--platinum);
+            transition: var(--transition);
+            text-decoration: none;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .mobile-social-icon:hover,
+        .mobile-social-icon:focus {
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+        
+        .mobile-copyright {
+            color: var(--platinum);
+            opacity: 0.8;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        
+        /* ===== EDUCATION HERO ===== */
+        .education-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 150px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .education-hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+            z-index: -1;
+        }
+        
+        .education-hero-content {
+            max-width: 800px;
+        }
+        
+        .education-hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: var(--platinum);
+        }
+        
+        .education-hero-content .gold-text {
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .education-hero-content p {
+            font-size: 1.2rem;
+            color: var(--platinum);
+            opacity: 0.9;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        
+        /* ===== EDUCATION JOURNEY CARDS ===== */
+        .education-journey {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .journey-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .journey-card {
+            background: rgba(26, 31, 46, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 50px 40px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .journey-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gold-gradient);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .journey-card:hover::before {
+            opacity: 0.05;
+        }
+        
+        .journey-card:hover,
+        .journey-card:focus-within {
+            transform: translateY(-15px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: var(--light-shadow);
+        }
+        
+        .journey-card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+        
+        .journey-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--platinum);
+        }
+        
+        .journey-institution {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+        
+        .journey-details {
+            color: var(--platinum);
+            opacity: 0.9;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+        
+        .achievements {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .achievement-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .journey-year {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-top: 15px;
+        }
+        
+        /* ===== TIMELINE SECTION ===== */
+        .education-timeline {
+            padding: 100px 0;
+            background: rgba(26, 31, 46, 0.5);
+            position: relative;
+        }
+        
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: calc(100% - 200px);
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                var(--gold) 10%, 
+                var(--gold) 90%, 
+                transparent 100%);
+            z-index: 0;
+        }
+        
+        .timeline-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .timeline-content:hover,
+        .timeline-content:focus-within {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: var(--light-shadow);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 2px;
+            background: var(--gold-gradient);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -40px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -40px;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            z-index: 2;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -60px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -60px;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--deep-navy);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            z-index: 2;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-icon {
+            right: -90px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-icon {
+            left: -90px;
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--platinum);
+        }
+        
+        .timeline-institution {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        .timeline-content p {
+            color: var(--platinum);
+            opacity: 0.9;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        /* ===== CERTIFICATIONS SECTION ===== */
+        .certifications {
+            padding: 100px 0;
+        }
+        
+        .certifications-container {
+            text-align: center;
+        }
+        
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .certification-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 50px 40px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gold-gradient);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .certification-card:hover::before,
+        .certification-card:focus-within::before {
+            transform: scaleX(1);
+        }
+        
+        .certification-card:hover,
+        .certification-card:focus-within {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: var(--light-shadow);
+        }
+        
+        .certification-icon {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .certification-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--platinum);
+        }
+        
+        .certification-issuer {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .certification-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--platinum);
+            opacity: 0.8;
+        }
+        
+        .certification-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .certification-card p {
+            color: var(--platinum);
+            opacity: 0.9;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        /* ===== SKILLS SECTION ===== */
+        .education-skills {
+            padding: 100px 0;
+            background: rgba(26, 31, 46, 0.5);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        
+        .skill-category h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--platinum);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .skill-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold-gradient);
+        }
+        
+        .skill-item {
+            margin-bottom: 30px;
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: var(--platinum);
+            font-size: 1.1rem;
+        }
+        
+        .skill-percentage {
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--gold-gradient);
+            border-radius: 4px;
+            width: 0;
+            position: relative;
+            transition: width 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .education-cta {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .education-cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .education-cta h2 {
+            font-size: 3.2rem;
+            margin-bottom: 30px;
+            color: var(--platinum);
+        }
+        
+        .education-cta p {
+            font-size: 1.2rem;
+            color: var(--platinum);
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+        
+        /* ===== LUXURY FOOTER ===== */
+        .luxury-footer {
+            background: rgba(10, 14, 23, 0.95);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--platinum);
+            text-decoration: none;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--platinum);
+            transition: var(--transition);
+            text-decoration: none;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .social-icon:hover,
+        .social-icon:focus {
+            background: var(--gold-gradient);
+            color: var(--deep-navy);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+        
+        .footer-copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--platinum);
+            opacity: 0.8;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .education-hero-content h1 {
+                font-size: 3.5rem;
+            }
+            
+            .education-timeline::before {
+                left: 100px;
+            }
+            
+            .timeline-item {
+                flex-direction: row !important;
+                margin-left: 100px;
+            }
+            
+            .timeline-content::before {
+                left: -40px !important;
+                right: auto !important;
+            }
+            
+            .timeline-year {
+                left: -160px !important;
+                right: auto !important;
+            }
+            
+            .timeline-icon {
+                left: -190px !important;
+                right: auto !important;
+            }
+            
+            .skills-container {
+                gap: 60px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .education-hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .journey-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+            
+            .luxury-nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .education-hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .education-timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                margin-left: 30px;
+            }
+            
+            .timeline-content::before {
+                left: -20px !important;
+                top: 40px;
+                width: 20px;
+            }
+            
+            .timeline-year,
+            .timeline-icon {
+                position: relative !important;
+                left: 0 !important;
+                right: 0 !important;
+                top: 0;
+                transform: none;
+                margin-bottom: 15px;
+                display: inline-block;
+                margin-right: 15px;
+            }
+            
+            .timeline-icon {
+                display: inline-flex;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .timeline-content {
+                padding: 30px 25px;
+            }
+            
+            .journey-card {
+                padding: 40px 30px;
+            }
+            
+            .certification-card {
+                padding: 40px 30px;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-menu-container,
+            .mobile-menu-overlay {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .education-hero-content h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .education-cta h2 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline-content {
+                padding: 25px 20px;
+            }
+            
+            .journey-card {
+                padding: 35px 25px;
+            }
+            
+            .certifications-grid {
+                gap: 30px;
+            }
+            
+            .certification-card {
+                padding: 30px 25px;
+            }
+            
+            .journey-card h3 {
+                font-size: 1.6rem;
+            }
+            
+            .journey-card-icon {
+                font-size: 3rem;
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .animate-in-right {
+            animation: fadeInRight 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+        
+        /* ===== SCROLLBAR STYLING ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--deep-navy);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-gradient);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Luxury Navigation -->
+    <nav class="luxury-nav" id="luxuryNav" aria-label="Main Navigation">
+        <div class="container nav-container">
+            <a href="index.html" class="luxury-logo">ASIA ABDULLAHI</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Mobile Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="luxury-nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html" class="active">Education</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu-container" id="mobileMenuContainer">
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-logo">ASIA ABDULLAHI</div>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close Mobile Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-nav-links" id="mobileNavLinks">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="education.html" class="active"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="projects.html"><i class="fas fa-briefcase"></i> Projects</a></li>
+            <li><a href="skills.html"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        
+        <div class="mobile-menu-footer">
+            <div class="mobile-social-icons">
+                <a href="#" class="mobile-social-icon" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                <a href="#" class="mobile-social-icon" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="#" class="mobile-social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="mobile-social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" class="mobile-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="mobile-copyright">
+                © 2024 ASIA ABDULLAHI
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Hero Section -->
+    <section class="education-hero" id="main-content">
+        <div class="education-hero-bg"></div>
+        <div class="container">
+            <div class="education-hero-content animate-in">
+                <h1>My <span class="gold-text">Education</span> Journey</h1>
+                <p class="delay-1 animate-in">
+                    From foundational years to specialized university studies, my educational path has shaped 
+                    my approach to problem-solving and creative thinking in web development and design.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Journey Cards -->
+    <section class="education-journey">
+        <div class="container">
+            <h2 class="section-title animate-in">Educational Background</h2>
+            <p class="section-subtitle delay-1 animate-in">
+                A comprehensive journey through my academic development
+            </p>
+            
+            <div class="journey-cards">
+                <div class="journey-card delay-1 animate-in">
+                    <div class="journey-card-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <div class="journey-institution">Umma University</div>
+                    <p class="journey-details">
+                        Specialized in software development, web technologies, and user interface design. 
+                        Developed strong foundations in programming, algorithms, and system architecture.
+                    </p>
+                    <div class="achievements">
+                        <div class="achievement-tag">
+                            <i class="fas fa-award"></i>
+                            Relevant Coursework
+                        </div>
+                        <div class="achievement-tag">
+                            <i class="fas fa-trophy"></i>
+                            Dean's List
+                        </div>
+                    </div>
+                    <div class="journey-year">University Degree</div>
+                </div>
+                
+                <div class="journey-card delay-2 animate-in">
+                    <div class="journey-card-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3>High School Education</h3>
+                    <div class="journey-institution">Northview Girls – Fedha</div>
+                    <p class="journey-details">
+                        Completed high school with a focus on mathematics and sciences. 
+                        Developed critical thinking skills and laid the groundwork for technical studies.
+                    </p>
+                    <div class="achievements">
+                        <div class="achievement-tag">
+                            <i class="fas fa-star"></i>
+                            Math & Sciences
+                        </div>
+                        <div class="achievement-tag">
+                            <i class="fas fa-medal"></i>
+                            Academic Excellence
+                        </div>
+                    </div>
+                    <div class="journey-year">Secondary Education</div>
+                </div>
+                
+                <div class="journey-card delay-3 animate-in">
+                    <div class="journey-card-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Primary School Education</h3>
+                    <div class="journey-institution">Namanga Junior – Kajiado</div>
+                    <p class="journey-details">
+                        Foundation years that sparked curiosity in technology and design. 
+                        Developed fundamental skills in logic, creativity, and problem-solving.
+                    </p>
+                    <div class="achievements">
+                        <div class="achievement-tag">
+                            <i class="fas fa-lightbulb"></i>
+                            Creative Foundation
+                        </div>
+                        <div class="achievement-tag">
+                            <i class="fas fa-brain"></i>
+                            Problem-Solving
+                        </div>
+                    </div>
+                    <div class="journey-year">Primary Education</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="education-timeline">
+        <div class="container timeline-container">
+            <h2 class="section-title animate-in">Learning Timeline</h2>
+            <p class="section-subtitle delay-1 animate-in">
+                My progressive journey through education and self-development
+            </p>
+            
+            <div class="timeline-item delay-1 animate-in">
+                <div class="timeline-content">
+                    <h3>Primary Education Foundation</h3>
+                    <span class="timeline-institution">Namanga Junior School</span>
+                    <p>
+                        Developed foundational skills in mathematics, sciences, and creative arts. 
+                        Participated in computer literacy programs that sparked initial interest in technology.
+                    </p>
+                </div>
+                <div class="timeline-year">2011- 2019</div>
+                <div class="timeline-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+            </div>
+            
+            <div class="timeline-item delay-2 animate-in">
+                <div class="timeline-content">
+                    <h3>Secondary Education</h3>
+                    <span class="timeline-institution">Northview Girls – Fedha</span>
+                    <p>
+                        Focused on sciences and mathematics while developing critical thinking skills. 
+                        Began exploring basic programming concepts and web design fundamentals.
+                    </p>
+                </div>
+                <div class="timeline-year">2020 - 2023</div>
+                <div class="timeline-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+            
+            <div class="timeline-item delay-3 animate-in">
+                <div class="timeline-content">
+                    <h3>University Studies</h3>
+                    <span class="timeline-institution">Umma University</span>
+                    <p>
+                        Pursued Bachelor of Science in Computer Science with specialization in 
+                        software engineering and web development. Completed projects in frontend 
+                        development and user interface design.
+                    </p>
+                </div>
+                <div class="timeline-year">2024 - 2028</div>
+                <div class="timeline-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications">
+        <div class="container certifications-container">
+            <h2 class="section-title animate-in">Additional Learning</h2>
+            <p class="section-subtitle delay-1 animate-in">
+                Professional development and specialized training
+            </p>
+            
+            <div class="certifications-grid">
+                <div class="certification-card delay-1 animate-in">
+                    <div class="certification-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>Frontend Web Development</h3>
+                    <div class="certification-issuer">Online Certification</div>
+                    <div class="certification-meta">
+                        <span><i class="far fa-calendar"></i> Issued: 2023</span>
+                        <span><i class="fas fa-id-badge"></i> Credential ID: FD101</span>
+                    </div>
+                    <p>
+                        Completed comprehensive training in modern frontend technologies including 
+                        HTML5, CSS3, JavaScript, and responsive design principles.
+                    </p>
+                </div>
+                
+                <div class="certification-card delay-2 animate-in">
+                    <div class="certification-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>UI/UX Design Fundamentals</h3>
+                    <div class="certification-issuer">Design Course</div>
+                    <div class="certification-meta">
+                        <span><i class="far fa-calendar"></i> Issued: 2022</span>
+                        <span><i class="fas fa-id-badge"></i> Credential ID: UX202</span>
+                    </div>
+                    <p>
+                        Studied user-centered design principles, wireframing, prototyping, 
+                        and usability testing methodologies for creating intuitive interfaces.
+                    </p>
+                </div>
+                
+                <div class="certification-card delay-3 animate-in">
+                    <div class="certification-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Web Design</h3>
+                    <div class="certification-issuer">Specialized Training</div>
+                    <div class="certification-meta">
+                        <span><i class="far fa-calendar"></i> Issued: 2023</span>
+                        <span><i class="fas fa-id-badge"></i> Credential ID: RWD303</span>
+                    </div>
+                    <p>
+                        Mastered techniques for creating websites that provide optimal viewing 
+                        experiences across a wide range of devices and screen sizes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="education-skills">
+        <div class="container">
+            <h2 class="section-title animate-in">Skills Developed</h2>
+            <p class="section-subtitle delay-1 animate-in">
+                Technical abilities cultivated through education and practice
+            </p>
+            
+            <div class="skills-container">
+                <div class="skill-category delay-1 animate-in">
+                    <h3>Development Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML5 & CSS3</span>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Responsive Design</span>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category delay-2 animate-in">
+                    <h3>Design & Tools</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">UI/UX Design</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Figma</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Git & GitHub</span>
+                            <span class="skill-percentage">87%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="87"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="education-cta">
+        <div class="education-cta-bg"></div>
+        <div class="container">
+            <h2 class="animate-in">Education is a Continuous Journey</h2>
+            <p class="delay-1 animate-in">
+                My learning path continues as I explore new technologies and design trends. 
+                Every project is an opportunity to grow and refine my skills.
+            </p>
+            <div class="delay-2 animate-in">
+                <a href="projects.html" class="btn" style="padding: 20px 50px;">
+                    <i class="fas fa-rocket" style="margin-right: 10px;"></i>
+                    View My Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+   <!-- Luxury Footer -->
+    <footer class="luxury-footer">
+        <div class="container">
+            <div class="footer-container">
+                <a href="#home" class="footer-logo">ASIA ABDULLAHI</a>
+                <div class="footer-social">
+                    <a href="mailto:sheikhliyanah@gmail.com" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/254112257994" target="_blank" class="social-icon" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://github.com/sheikhuna76-beep" target="_blank" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2024 ASIA ABDULLAHI. ALL RIGHTS RESERVED. | LUXURY WEB DESIGN & DEVELOPMENT
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Luxury Navigation Scroll Effect
+        const luxuryNav = document.getElementById('luxuryNav');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                luxuryNav.classList.add('scrolled');
+            } else {
+                luxuryNav.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile Menu Functionality
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuContainer = document.getElementById('mobileMenuContainer');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+        
+        function openMobileMenu() {
+            mobileMenuOverlay.style.display = 'block';
+            mobileMenuContainer.style.display = 'block';
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add('active');
+                mobileMenuContainer.classList.add('active');
+                
+                // Animate menu items with delay
+                document.querySelectorAll('.mobile-nav-links li').forEach((item, index) => {
+                    item.style.animation = `fadeInRight 0.5s ease-out ${index * 0.1}s forwards`;
+                    item.style.opacity = '0';
+                });
+            }, 10);
+            
+            // Prevent body scrolling when menu is open
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('active');
+            mobileMenuContainer.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            
+            setTimeout(() => {
+                mobileMenuOverlay.style.display = 'none';
+                mobileMenuContainer.style.display = 'none';
+            }, 400);
+            
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        }
+        
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Close menu when clicking a link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenuContainer.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+        
+        // Animate skill bars with Intersection Observer
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        function animateSkillBars() {
+            skillBars.forEach(bar => {
+                const barPosition = bar.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (barPosition < screenPosition && bar.style.width === '0%') {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.transition = 'width 1.5s cubic-bezier(0.215, 0.61, 0.355, 1)';
+                    setTimeout(() => {
+                        bar.style.width = width + '%';
+                    }, 100);
+                }
+            });
+        }
+        
+        // Use Intersection Observer for better performance
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    skillObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        // Observe skill containers
+        document.querySelectorAll('.skill-category').forEach(el => {
+            skillObserver.observe(el);
+        });
+        
+        // General intersection observer for other animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    
+                    // If it's a timeline item or journey card, trigger skill bars
+                    if (entry.target.classList.contains('timeline-item') || 
+                        entry.target.classList.contains('journey-card')) {
+                        setTimeout(animateSkillBars, 300);
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animate-in elements
+        document.querySelectorAll('.animate-in').forEach(el => {
+            if (!el.classList.contains('delay-1') && 
+                !el.classList.contains('delay-2') && 
+                !el.classList.contains('delay-3') && 
+                !el.classList.contains('delay-4')) {
+                observer.observe(el);
+            }
+        });
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add staggered animation delays
+            document.querySelectorAll('.delay-1').forEach(el => {
+                el.style.animationDelay = '0.2s';
+            });
+            document.querySelectorAll('.delay-2').forEach(el => {
+                el.style.animationDelay = '0.4s';
+            });
+            document.querySelectorAll('.delay-3').forEach(el => {
+                el.style.animationDelay = '0.6s';
+            });
+            document.querySelectorAll('.delay-4').forEach(el => {
+                el.style.animationDelay = '0.8s';
+            });
+            
+            // Reset skill bars
+            skillBars.forEach(bar => {
+                bar.style.width = '0%';
+            });
+            
+            // Initial animation trigger
+            setTimeout(() => {
+                animateSkillBars();
+            }, 800);
+            
+            // Focus management for accessibility
+            const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+            const firstFocusableElement = mobileMenuContainer.querySelectorAll(focusableElements)[0];
+            const focusableContent = mobileMenuContainer.querySelectorAll(focusableElements);
+            const lastFocusableElement = focusableContent[focusableContent.length - 1];
+            
+            document.addEventListener('keydown', function(e) {
+                if (mobileMenuContainer.classList.contains('active')) {
+                    if (e.key === 'Tab') {
+                        if (e.shiftKey) { // Shift + Tab
+                            if (document.activeElement === firstFocusableElement) {
+                                lastFocusableElement.focus();
+                                e.preventDefault();
+                            }
+                        } else { // Tab
+                            if (document.activeElement === lastFocusableElement) {
+                                firstFocusableElement.focus();
+                                e.preventDefault();
+                            }
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Animate on scroll as backup
+        window.addEventListener('scroll', animateSkillBars);
+        
+        // Prevent scrolling in mobile menu
+        mobileMenuContainer.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+    </script>
+</body>
+</html>
